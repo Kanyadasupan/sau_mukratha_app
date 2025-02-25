@@ -1,0 +1,2 @@
+C:/Kanyada/sau_mukratha_app/android/app/.cxx/Debug/5t252i4t/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Kanyada/sau_mukratha_app/android/app/.cxx/Debug/5t252i4t/armeabi-v7a/CMakeFiles/rebuild_cache.dir
