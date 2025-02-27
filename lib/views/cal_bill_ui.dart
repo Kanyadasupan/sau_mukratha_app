@@ -46,6 +46,7 @@ class _CalBillUiState extends State<CalBillUi> {
   ];
 
   double discount = 0;
+  double showDiscount = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -229,34 +230,37 @@ class _CalBillUiState extends State<CalBillUi> {
                   ),
                 ),
                 //Dropdown ประเภทสมาชิก
-                DropdownButtonFormField(
-                  value: discount,
+                DropdownButton(
+                  value: showDiscount,
                   isExpanded: true,
                   items: memberType
-                      .map(
-                        (e) => DropdownMenuItem(
-                          child: Text(
-                            e,
-                            style: TextStyle(
-                              fontSize: 16.0,
+                      .map((e) => DropdownMenuItem(
+                            child: Text(
+                              e,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.normal,
+                              ),
                             ),
-                          ),
-                          value: memberType.indexOf(e).toDouble(),
-                        ),
-                      )
+                            value: memberType.indexOf(e).toDouble(),
+                          ))
                       .toList(),
-                  onChanged: (valueParam) {
-                    switch (valueParam) {
-                      case 0:
-                        discount = 0;
-                        break;
-                      case 1:
-                        discount = 0.05;
-                        break;
-                      case 2:
-                        discount = 0.2;
-                        break;
-                    }
+                  onChanged: (v) {
+                    int index = v!.toInt();
+                    setState(() {
+                      showDiscount = v!;
+                      switch (index) {
+                        case 0.0:
+                          discount = 0;
+                          break;
+                        case 1.0:
+                          discount = 0.05;
+                          break;
+                        case 2.0:
+                          discount = 0.2;
+                          break;
+                      }
+                    });
                   },
                 ),
                 SizedBox(height: 20.0),
